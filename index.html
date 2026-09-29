@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>多标签页同步倒计时</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="app-header">
+    <h1>同步倒计时</h1>
+    <div class="identity">
+      <label>本标签页名称
+        <input id="tab-name" type="text" maxlength="20">
+      </label>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="main-col">
+      <form id="create-form" class="create-form">
+        <input id="new-name" type="text" placeholder="倒计时名称" maxlength="30">
+        <input id="new-min" type="number" min="0" max="999" value="5" aria-label="分钟"> 分
+        <input id="new-sec" type="number" min="0" max="59" value="0" aria-label="秒"> 秒
+        <button class="btn primary" type="submit">新建倒计时</button>
+      </form>
+      <p id="empty" class="empty">还没有倒计时，先创建一个吧。多开几个标签页试试同步效果。</p>
+      <div id="timers" class="timers"></div>
+    </section>
+
+    <aside class="side-col">
+      <h2>标签页状态</h2>
+      <ul id="peers" class="peers"></ul>
+      <p class="hint">打开多个标签页 / 窗口，任意一个的操作都会实时同步到其余标签页。</p>
+    </aside>
+  </main>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
