@@ -1,0 +1,114 @@
+:root {
+  --bg: #0f1420;
+  --panel: #1a2233;
+  --panel-2: #222c42;
+  --text: #e8ecf4;
+  --muted: #8b96ad;
+  --accent: #4f8cff;
+  --green: #2fbf71;
+  --yellow: #e0a93e;
+  --red: #e05656;
+  --border: #2c3852;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+}
+
+.app-header h1 { margin: 0 0 4px; font-size: 24px; }
+.subtitle { margin: 0 0 20px; color: var(--muted); font-size: 14px; }
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+}
+
+.panel h2 { margin: 0 0 12px; font-size: 16px; }
+
+/* 标签页状态 */
+.peer-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.peer {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--panel-2); border-radius: 999px;
+  padding: 4px 12px; font-size: 13px;
+}
+.peer.self { outline: 1px solid var(--accent); }
+.peer .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
+.peer code { color: var(--accent); }
+.peer-action { color: var(--muted); font-size: 12px; }
+
+/* 创建表单 */
+.create-form { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.create-form input[type="text"] {
+  flex: 1 1 160px; padding: 8px 12px; border-radius: 8px;
+  border: 1px solid var(--border); background: var(--panel-2); color: var(--text);
+}
+.duration-inputs { display: flex; gap: 10px; }
+.duration-inputs label { display: flex; align-items: center; gap: 4px; color: var(--muted); font-size: 14px; }
+.duration-inputs input {
+  width: 56px; padding: 8px; border-radius: 8px;
+  border: 1px solid var(--border); background: var(--panel-2); color: var(--text);
+}
+
+button {
+  padding: 8px 16px; border-radius: 8px; border: 1px solid var(--border);
+  background: var(--panel-2); color: var(--text); cursor: pointer; font-size: 14px;
+}
+button:hover:not(:disabled) { border-color: var(--accent); }
+button:disabled { opacity: 0.4; cursor: not-allowed; }
+button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+button.danger { color: var(--red); }
+button.ghost { color: var(--muted); }
+
+/* 倒计时卡片 */
+.timer-list { display: flex; flex-direction: column; gap: 16px; }
+.timer-card {
+  background: var(--panel); border: 1px solid var(--border);
+  border-radius: 12px; padding: 16px 20px;
+}
+.timer-card header { display: flex; align-items: center; justify-content: space-between; }
+.timer-card h3 { margin: 0; font-size: 16px; }
+
+.badge { font-size: 12px; padding: 2px 10px; border-radius: 999px; }
+.badge-running { background: rgba(47,191,113,.15); color: var(--green); }
+.badge-paused { background: rgba(224,169,62,.15); color: var(--yellow); }
+.badge-idle { background: rgba(139,150,173,.15); color: var(--muted); }
+.badge-done { background: rgba(224,86,86,.15); color: var(--red); }
+
+.clock {
+  font-family: "SF Mono", Consolas, monospace;
+  font-size: 44px; font-weight: 600; letter-spacing: 2px;
+  margin: 12px 0 8px; font-variant-numeric: tabular-nums;
+}
+.status-running .clock { color: var(--green); }
+.status-done .clock { color: var(--red); }
+
+.progress { height: 6px; background: var(--panel-2); border-radius: 3px; overflow: hidden; }
+.progress-fill { height: 100%; background: var(--accent); transition: width .1s linear; }
+.status-running .progress-fill { background: var(--green); }
+
+.actions { display: flex; gap: 8px; margin: 14px 0 8px; flex-wrap: wrap; }
+.meta { color: var(--muted); font-size: 12px; }
+.meta code { color: var(--accent); }
+
+.history { margin-top: 12px; overflow-x: auto; }
+.history table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.history th, .history td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--border); }
+.history th { color: var(--muted); font-weight: normal; }
+.history code { color: var(--accent); }
+
+.empty { color: var(--muted); font-size: 14px; }
